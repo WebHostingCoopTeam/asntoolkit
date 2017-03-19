@@ -1,0 +1,20 @@
+#!/bin/bash
+
+main() {
+  local DOMAIN=$1
+
+	if [[ -z "$DOMAIN" ]]; then
+		usage
+		exit 1
+	fi
+
+  for i in {11,12,14,15,21,22,24,25,31,32,34,35};do echo $i; dig @ns$i.webhosting.coop +short $DOMAIN; done
+}
+usage() {
+	echo -e "resolversplat \n"
+	echo "Usage:"
+	echo "resolversplat DOMAIN                     - check DOMAIN"
+	echo -e "\nresolversplat foundation.webhosting.coop \n"
+}
+
+main "$@"
