@@ -8,7 +8,7 @@ main() {
 		exit 1
 	fi
 
-  for i in {11,12,14,15,21,22,24,25,31,32,34,35};do echo $i; dig @ns$i.webhosting.coop +short $DOMAIN; done
+  for i in {11,12,14,15,21,22,24,25,31,32,34,35};do echo -n "ns$i.webhosting.coop --returned--> "; echo " $(dig @ns$i.webhosting.coop +short $DOMAIN)"; done
 }
 usage() {
 	echo -e "resolversplat \n"
